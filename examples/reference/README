@@ -1,0 +1,28 @@
+Examples in this directory deal with reference identifiers
+
+a.cpp - pass by reference parameter (nothing new/tricky here)
+
+b.cpp - reference identifier, alias
+
+c.cpp - use of a reference variable can be used to simplify an expression
+
+d.cpp - reference to dynamic memory allocated in a function
+
+e.cpp - potential bad things can happen when returning a reference
+
+f.cpp - returning const reference is OK, ... or is it?
+
+g.cpp - even with returning a const reference, const casting still accesses
+        the private data of the class
+
+So what's the moral to the story?  Returning a reference is not a good
+programming practice, but there are a couple exceptions that come to mind.
+
+When there is a reference parameter that being returned, it should be
+returned by reference.  Examples:
+   ostream& operator<<(ostream&,const objType&);
+   istream& operator>>(istream&,objType&);
+
+When the object itself is being returned.  Example
+   const objType& class::operator=(const objType&); // allows a=b=c=d;
+

@@ -1,0 +1,49 @@
+This directory contains an example of polymorphism.  Polymorphism is
+the late binding of a method.  In other words, if a base class and
+a derived class both have a method with the same name, polymorphism
+means the decision as to which method will be run is delayed until
+execution time.  Early binding (or static binding) is done by the
+compiler.
+
+In this example, both the Circle and ColoredCircle classes have a
+method called Display().
+
+Circle c(3);
+ColoredCircle cc(5,blue);
+
+c.Display();  // early binding, Circle's Display will be executed
+cc.Display(); // early binding, ColoredCircle's Display will be executed
+
+Circle* p;
+p=&c;         // a Circle pointer points to a Circle object
+p->Display(); // Circle's Display will be executed
+
+p=&cc;        // a Circle pointer points to a ColoredCircle
+p->Display(); // which Display will be executed?
+
+Which Display will be executed in the last line is determined by whether
+early binding or late binding is done.  If early binding is done (by
+the compiler), the Circle's Display method will execute.  If late binding
+is done (polymorphism), the ColoredCircle's Display method will execute
+even though it is a Circle pointer.
+
+To use late binding, the Display method in the base class (Circle) 
+specification is preceded by the keyword virtual.
+
+In the Circle specification
+    void Display() const;         // early binding will always be done
+        or
+    virtual void Display() const; // late binding (polymorphism) is possible
+
+Late binding occurs only through the use of addresses.  This is often
+pointers but as you can see from the example, a pass by reference
+argument also, which are addresses.
+
+To learn from this example, run the program and study the output,
+comparing the results with main.cpp.  Note that late binding is done
+as ColoredCircle's Display method is executed by both the pointer and 
+in the functions.  Next, remove the word virtual from before the Display
+method in Circle.h.  Compile and run the program again and notice that 
+early binding is done as the Circle's Display method is executed even 
+though the pointer is pointing at a ColoredCircle and the actual 
+arguments to the functions are ColoredCircle.

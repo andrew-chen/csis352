@@ -1,0 +1,7 @@
+This example shows the STL list storing pointers to Circle objects.
+Circle pointers can be either a pointer to a Circle or a ColoredCircle.
+
+Once the list is populated with pointers to both Circles and ColoredCircles,
+it retrieves each and the appropriate Display method is called because
+of polymorphism.
+

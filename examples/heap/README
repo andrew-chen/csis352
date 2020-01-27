@@ -1,0 +1,19 @@
+A heap is an ADT implemented as an array based complete binary
+tree.  Each key value in a node is greater than all of its
+descendants (max heap).  To insert, a new value is placed at
+the position to maintain the complete property then is reheaped
+up until it is in the proper place for the property of being
+greater than all its descendants.  To delete a value, the root
+is always deleted.  The last value in the complete binary tree
+is place in the root and is reheaped down until it is in the 
+proper place for the property of beinggreater than all its 
+descendants.
+
+Applications for heaps
+1) priority queue
+2) heap sort
+
+Note: I added a method to the heap class called dump that will simply
+dump out the array contents of the heap.  This is for demonstration
+purposes only to show the contents of the heap following each
+change to the heap, insertion or deletion.

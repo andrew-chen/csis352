@@ -1,0 +1,12 @@
+The purpose of this example is to show another example of the use
+of an abstract class.
+
+This example shows a playingCard displayed on a VT100 terminal.  
+The main function instantiates a new object of vt100 with a Display
+pointer pointing to it.  Should the game be ported to a different
+platform with a different kind of display, such as a graphic display,
+the game would not need to be changed at all.  Only a new class would
+need to be created for the display and instantiated in the main function.
+
+Try it!  Change "new vt100" to "new vtAlt"
+

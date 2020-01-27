@@ -1,0 +1,31 @@
+Multiple Inheritance is a controversial topic.  Some computer programming
+languages do not allow it, Java included.  C++ does allow multiple
+inheritance.  Proponents argue that it can be a powerful programming tool
+in the hands of skilled programmers.  Detractors argue that it is often
+not used properly leading to poor design and code that is difficult
+to debug.
+
+
+directory contents
+
+file     purpose
+-------  --------------------------------------------------------------
+ex1.cpp  Shows an example of multiple inheritance.
+ex2.cpp  Shows an example of the Deadly Diamond of Derivation (DDD). 
+         Members of the class 'base' are ambiguous members of the class
+         'multi' because there are two base objects, one inherited
+         through 'derived1' and the other inherited through 'derived2'
+         This example will not compile.
+ex3.cpp  Shows ex2.cpp with the ambiguity resolved with scope resolution.
+         This example also shows that there is indeed the existance of
+         two 'base' objects.  There may be cases where two base objects
+         are desireable.
+ex4.cpp  Shows an example of a single 'base' object being inherited by
+         'multi' accomplished using virtual inheritance.
+ex5.cpp  Example shows that the 'base' constructor is not passed an
+         argument when virtual inheritance is used.  Therefore, the
+         base constructor must have a default argument. In fact, the
+         base constructor does not need to be in the initializer list.
+         
+Example of multiple inheritance: iostream inherits from both istream
+and ostream.  istream and ostream inherit from ios.

@@ -1,0 +1,30 @@
+This contains two examples of an abstract Display class. The idea 
+is that an application can be created without regards to the display
+type that the application is to be run on. Each display type would have
+its own display class that inherits from the abstract Display class. The 
+implementation for each display type class contains the appropriate
+output statements specific for the display type.  
+
+The application itself needs only to dynamically create an object of the 
+desired display type and assign it to a pointer of the abstract Display 
+class.  For output, a call to an abstract method of the Display class 
+through the pointer results in a polymorphic call to the specific display 
+type.  This way, the application can be ported to any display type without 
+any change to the application itself.  Only a new display class would need 
+to be created for the new display type.
+
+For example, a card game could be created using the abstract Display class.
+To run it on a text terminal, a class would be created for the text 
+display. To run it on a graphics terminal, a class would be created for
+the graphic display.  Either way, the card game itself would not change.
+All the application would do is something like p->show(card);
+
+The two examples are as follows.
+
+general - displays an int, double, or char on a text terminal.  Each
+     type must have its own show method.
+
+cardgame - displays a single playing card.  There are two display type
+     classes defined.  Both are for a text terminal but they display
+     in different styles.
+

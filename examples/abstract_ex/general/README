@@ -1,0 +1,2 @@
+This constains abstract methods in the Display class for each type that
+is to be output.  It works for 3 types (int, double, and char).

@@ -1,0 +1,32 @@
+This directory shows the use of a static class variable.
+A static variable allows one shared variable among all instances of a
+class.  To make a static class variable, include the keyword 'static'
+before the declaration of it in the specification.  In this example:
+
+   static int Y;
+
+The syntax of initializing it in the implementation is as follows:
+
+   Type Classname::Value=value;
+
+So in this example:
+
+   int someClass::Y=0;
+
+
+Methods can also be static.  If a method is static, it cannot also
+be const.  In this example, the setY(int) and getY() methods are made 
+static so they can be invoked using a scope resolution operator as follows.
+
+   someClass::setY(50);
+        or
+   cout << someClass::getY() << endl;
+   
+
+Without these methods being static, the only way they could be invoked
+is through an object.  It is a good programming practice to make methods 
+static if they access only static variables within the class.  Static 
+methods do not have access to instance variables in a class.  Instance 
+variables are those allocated for each object (for example, each 
+someClass object has a unique X).
+

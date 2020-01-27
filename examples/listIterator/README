@@ -1,0 +1,37 @@
+The purpose of this distribution is to show you how you can create an
+iterator for an ADT.  I started by taking the List class from
+template.tar.gz whose purpose was simply to show how to create a templated
+class.  As such, it is not a very rich class in terms of functionality,
+but that doesn't take away from the purpose of this example.
+
+To create an iterator, here are the basics.
+1) Create an iterator class.  In this example, it is called listIterator.
+   Since the List class is templated, the listIterator class must also
+   be templated.
+   * The iterator class (listIterator in this example), has a single attribute
+     which is a templated pointer to an element in the container.  Remember
+     from class discussion, iterators function just like pointers and in this
+     case it IS a pointer.  
+   * The methods in the iterator class (listIterator in this example), define
+     the functionality of the iterator.  As you would expect, the following
+     methods should be implemented for an iterator.
+     a. constructors - a default (no parameters) that sets the pointer to NULL
+           and one that will initialize the pointer.
+     b. the dereferencing operator* - simply returns what the pointer is
+           pointing to.
+     c. pre and post increment and decrement (the 4 combinations)
+     d. operator== and operator!=.  I chose to not implement the other 
+           relational operators because the list STL does not do so since
+           comparing an iterator for anything but equal and not equal 
+           doesn't make sense.
+     e. operator+ and operator- (like adding to a pointer)
+     Note: destructor, copy constructor, and operator= are not needed because
+           there is not dynamic memory in the iterator class.
+2) The List class must contain the minimum fundamental methods for iterators,
+   begin() and end().  Each of these return a listIterator.
+3) To create functionality similar to iterators in the STL, use typedef in
+        List class to create a type called iterator.
+           typedef listIterator<T> iterator;
+
+That's it!  Really simple, huh?  :-)
+

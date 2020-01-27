@@ -1,0 +1,20 @@
+An explicit constructor prevents the compiler from making implicit
+conversions.  Letting the compiler make the decision on the
+conversion can lead to confusing code and be error prone.
+
+This example shows 3 implicit conversions in main.cpp.  As you can see,
+a couple of them may not make much sense.  If the constructor were declared 
+to be explicit, none of these conversions would be allowed.
+
+A constructor that requires two or more arguments need not be made
+explicit as no implicit conversion would be attempted.  However,
+default arguments complicate this issue and using explicit may be a
+good idea.
+
+In some cases, having a constructor that is not explicit is a good idea.
+Consider a class called MyNumberType in which you define an alternative
+to the predefined numeric types like int and double.  If the constructor
+was explicit, the only allowed declaration would be: MyNumberType num(23.84);
+while it would make perfect sense to allow: MyNumberType num = 23.84;
+A non explicit constructor would allow this.
+

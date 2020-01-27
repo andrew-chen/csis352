@@ -1,0 +1,23 @@
+Dynamic memory in a class
+   This example demonstrates the execution of the following:
+   1) constructor
+   2) destructor
+   3) copy constructor
+   4) operator=
+   The output to the screen shows when each of the above are executed.
+   If the above are not supplied by the programmer, a default for each is
+   supplied by C++.  Since this example uses a dynamically allocated array
+   for the intarray, it is necessary for the programmer to supply them.
+
+   The destructor is called whenever an object goes out of scope.
+
+   The copy constructor is called for the following examples:
+       * Classname anObject=anotherObject;
+       * Classname anObject(anotherObject);
+       * when an object is a pass by value argument
+       * when an object is returned by a function
+
+   The operator= is called in the following example:
+       * anObject = anotherObject;
+
+
